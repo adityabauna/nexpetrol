@@ -553,46 +553,89 @@ export default function Home() {
                 <CardDescription>Fill out the form below and we'll get back to you within 24 hours</CardDescription>
               </CardHeader>
               <CardContent>
-                <form className="space-y-6">
+                <form 
+                  id="contact-form"
+                  name="contact-form"
+                  className="space-y-6"
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    // Track form submission with Google Ads
+                    if (typeof window !== 'undefined' && (window as any).gtag) {
+                      (window as any).gtag('event', 'form_submit', {
+                        'event_category': 'contact',
+                        'event_label': 'contact_form_submission',
+                        'value': 1
+                      });
+                      // Track conversion
+                      (window as any).gtag('event', 'conversion', {
+                        'send_to': 'AW-17731117963',
+                        'event_category': 'lead',
+                        'event_label': 'contact_form'
+                      });
+                    }
+                    // Here you would typically submit the form data to your backend
+                    alert('Thank you for your inquiry! We will get back to you within 24 hours.');
+                  }}
+                >
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                    <label htmlFor="full-name" className="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
                     <input 
+                      id="full-name"
+                      name="fullName"
                       type="text" 
+                      required
+                      autoComplete="name"
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                       placeholder="John Doe"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">Email</label>
                     <input 
+                      id="email"
+                      name="email"
                       type="email" 
+                      required
+                      autoComplete="email"
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                       placeholder="john@example.com"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">Phone</label>
                     <input 
+                      id="phone"
+                      name="phone"
                       type="tel" 
+                      required
+                      autoComplete="tel"
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                       placeholder="+91 1234567890"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Service Interest</label>
-                    <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
-                      <option>Select a service</option>
-                      <option>Diesel & Petrol Station</option>
-                      <option>CNG Station</option>
-                      <option>CBG Plant</option>
-                      <option>EV Charging Station</option>
-                      <option>Multiple Services</option>
+                    <label htmlFor="service-interest" className="block text-sm font-medium text-gray-700 mb-2">Service Interest</label>
+                    <select 
+                      id="service-interest"
+                      name="serviceInterest"
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    >
+                      <option value="">Select a service</option>
+                      <option value="Diesel & Petrol Station">Diesel & Petrol Station</option>
+                      <option value="CNG Station">CNG Station</option>
+                      <option value="CBG Plant">CBG Plant</option>
+                      <option value="EV Charging Station">EV Charging Station</option>
+                      <option value="Multiple Services">Multiple Services</option>
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">Message</label>
                     <textarea 
+                      id="message"
+                      name="message"
                       rows={5}
+                      required
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
                       placeholder="Tell us about your project requirements, location, and investment capacity..."
                     />
