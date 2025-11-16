@@ -128,3 +128,82 @@
       linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
   }
 }
+
+@keyframes float-1 {
+  0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) translateX(10px) rotate(5deg); }
+}
+
+@keyframes float-2 {
+  0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) translateX(-10px) rotate(-5deg); }
+}
+
+@keyframes float-3 {
+  0%, 100% { transform: translateY(-50%) translateX(0px) rotate(0deg); }
+  50% { transform: translateY(calc(-50% - 25px)) translateX(15px) rotate(8deg); }
+}
+
+@keyframes float-4 {
+  0%, 100% { transform: translateY(-50%) translateX(0px) rotate(0deg); }
+  50% { transform: translateY(calc(-50% - 20px)) translateX(-15px) rotate(-8deg); }
+}
+
+@keyframes float-5 {
+  0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+  50% { transform: translateY(15px) translateX(-10px) rotate(6deg); }
+}
+
+@keyframes float-6 {
+  0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+  50% { transform: translateY(20px) translateX(10px) rotate(-6deg); }
+}
+
+@keyframes float-7 {
+  0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+  50% { transform: translateY(-18px) translateX(12px) rotate(7deg); }
+}
+
+@keyframes float-8 {
+  0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+  50% { transform: translateY(22px) translateX(-12px) rotate(-7deg); }
+}
+
+.animate-float-1 {
+  animation: float-1 6s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: float-2 7s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+.animate-float-3 {
+  animation: float-3 8s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.animate-float-4 {
+  animation: float-4 6.5s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+.animate-float-5 {
+  animation: float-5 7.5s ease-in-out infinite;
+  animation-delay: 0.8s;
+}
+
+.animate-float-6 {
+  animation: float-6 6.8s ease-in-out infinite;
+  animation-delay: 1.2s;
+}
+
+.animate-float-7 {
+  animation: float-7 7.2s ease-in-out infinite;
+  animation-delay: 0.3s;
+}
+
+.animate-float-8 {
+  animation: float-8 8.2s ease-in-out infinite;
+  animation-delay: 0.7s;
+}
