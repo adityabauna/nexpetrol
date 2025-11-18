@@ -25,3 +25,47 @@ model Contact {
 
   @@map("contacts")
 }
+
+model FuelStation {
+  id          String   @id @default(cuid())
+  name        String
+  address     String   @db.Text
+  phone       String
+  hours       String
+  services    String[] // Array of services (Petrol, Diesel, CNG, etc.)
+  latitude    Float
+  longitude   Float
+  city        String?
+  area        String?
+  isActive    Boolean  @default(true) @map("is_active")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@map("fuel_stations")
+  @@index([latitude, longitude])
+  @@index([city])
+}
+
+model DealershipApplication {
+  id                String   @id @default(cuid())
+  fullName          String   @map("full_name")
+  email             String
+  phone             String
+  address           String   @db.Text
+  city              String
+  state             String
+  pincode           String
+  landLocation      String   @map("land_location")
+  landArea          String   @map("land_area")
+  landOwnership     String   @map("land_ownership")
+  investmentCapacity String  @map("investment_capacity")
+  experience        String
+  message           String?  @db.Text
+  status            String   @default("pending") // pending, reviewed, approved, rejected
+  createdAt         DateTime @default(now()) @map("created_at")
+  updatedAt         DateTime @updatedAt @map("updated_at")
+
+  @@map("dealership_applications")
+  @@index([email])
+  @@index([status])
+}

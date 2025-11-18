@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased snap-y snap-mandatory`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {/* Google tag (gtag.js) - placed in head via beforeInteractive strategy */}
         <Script
